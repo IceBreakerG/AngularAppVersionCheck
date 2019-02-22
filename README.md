@@ -1,6 +1,7 @@
 # Angular 6+ Application Version Checking
 
 **Note:** This was modified from code by Henrik Peinar.
+
 https://blog.nodeswat.com/automagic-reload-for-clients-after-deploy-with-angular-4-8440c9fdd96c`
 
 This contains the version-check service and post build script used for versioning my Angular 6+ applications.
@@ -15,7 +16,7 @@ Where `'./version.json'` is the path to your version.json file (typically in the
 
 In your package.json file, you can add a script to make this easier when building the application.
 
-`{
+```{
   ...
   "scripts": {
     ...
@@ -23,6 +24,6 @@ In your package.json file, you can add a script to make this easier when buildin
     "post-build": "node ./build/post-build.js"
   },
   ...
-}`
+}```
 
 On your build server (if you're using one) or when you build your Angular project, run the script `npm run build-prod` to execute the `ng build` command along with the `post-build.js` script afterwards to set the current version.  You can make any changes you want/need for versioning, but this uses the date of the build in **year.month.day** format along with the hash of the compiled js files.
