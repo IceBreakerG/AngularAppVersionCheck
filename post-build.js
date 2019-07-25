@@ -26,8 +26,10 @@ const versionFilePath = path.join(__dirname + '/../dist/version.json')
 let mainHash = ''
 let mainBundleFile = ''
 
-// RegExp to find main.bundle.js, even if it doesn't include a hash in it's name (dev build)
-let mainBundleRegexp = /^main.?([a-z0-9]*)?.js$/
+// RegExp to find main-es2015.bundle.js, even if it doesn't include a hash in it's name (dev build)
+// Note: If you are using a version of Angular lower than Angular 8, the file will start with "main.",
+// as main-es2015 is part of the new build output for Angular 8.
+let mainBundleRegexp = /^main-es2015.?([a-z0-9]*)?.js$/
 
 // Update version number with the current date of the build
 let year = moment().year()
